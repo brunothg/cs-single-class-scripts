@@ -16,16 +16,16 @@ namespace CS_Single_Class_Scripts
              */
             public abstract object Value { get; set; }
 
-            public JValue this[string key]
+            public abstract JValue this[string key]
             {
-                get => throw new NotSupportedException();
-                set => throw new NotSupportedException();
+                get;
+                set;
             }
             
-            public JValue this[int index]
+            public abstract JValue this[int index]
             {
-                get => throw new NotSupportedException();
-                set => throw new NotSupportedException();
+                get;
+                set;
             }
             
             /**
@@ -133,10 +133,16 @@ namespace CS_Single_Class_Scripts
             {
             }
             
-            public new JValue this[int index]
+            public override JValue this[int index]
             {
                 get => Array[index];
                 set => Array[index] = value;
+            }
+            
+            public override JValue this[string property]
+            {
+                get => throw new NotSupportedException();
+                set => throw new NotSupportedException();
             }
 
             public override string AsString()
@@ -183,10 +189,16 @@ namespace CS_Single_Class_Scripts
             {
             }
             
-            public new JValue this[string key]
+            public override JValue this[string key]
             {
                 get => Dictionary[key];
                 set => Dictionary[key] = value;
+            }
+            
+            public override JValue this[int index]
+            {
+                get => throw new NotSupportedException();
+                set => throw new NotSupportedException();
             }
 
             public override string AsString()
@@ -232,6 +244,18 @@ namespace CS_Single_Class_Scripts
             public JString() : this("")
             {
             }
+            
+            public override JValue this[string property]
+            {
+                get => throw new NotSupportedException();
+                set => throw new NotSupportedException();
+            }
+            
+            public override JValue this[int index]
+            {
+                get => throw new NotSupportedException();
+                set => throw new NotSupportedException();
+            }
 
             public override string AsString()
             {
@@ -266,6 +290,18 @@ namespace CS_Single_Class_Scripts
             {
                 Double = value;
             }
+            
+            public override JValue this[string property]
+            {
+                get => throw new NotSupportedException();
+                set => throw new NotSupportedException();
+            }
+            
+            public override JValue this[int index]
+            {
+                get => throw new NotSupportedException();
+                set => throw new NotSupportedException();
+            }
 
             public override string AsString()
             {
@@ -280,10 +316,6 @@ namespace CS_Single_Class_Scripts
 
         public class JBoolean : JValue
         {
-            public JBoolean(bool value)
-            {
-                Bool = value;
-            }
 
             public bool Bool { get; set; }
 
@@ -291,6 +323,23 @@ namespace CS_Single_Class_Scripts
             {
                 get => Bool;
                 set => Bool = (bool) value;
+            }
+            
+            public JBoolean(bool value)
+            {
+                Bool = value;
+            }
+            
+            public override JValue this[string property]
+            {
+                get => throw new NotSupportedException();
+                set => throw new NotSupportedException();
+            }
+            
+            public override JValue this[int index]
+            {
+                get => throw new NotSupportedException();
+                set => throw new NotSupportedException();
             }
 
             public override string AsString()
@@ -310,6 +359,18 @@ namespace CS_Single_Class_Scripts
             {
                 get => null;
                 set { }
+            }
+            
+            public override JValue this[string property]
+            {
+                get => throw new NotSupportedException();
+                set => throw new NotSupportedException();
+            }
+            
+            public override JValue this[int index]
+            {
+                get => throw new NotSupportedException();
+                set => throw new NotSupportedException();
             }
 
             public override string AsString()

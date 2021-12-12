@@ -68,6 +68,14 @@ namespace Tests
         public void Setup()
         {
         }
+        
+        [Test]
+        public void TestIndexer()
+        {
+            Assert.AreEqual(2, JsonValue["v4"][1].Value);
+            Assert.AreEqual(true, JsonValue["v5"][2]["v51"].Value);
+            Assert.AreEqual(1.4, JsonValue["v5"][2]["v52"].Value);
+        }
 
         [Test]
         public void TestReadJson()
