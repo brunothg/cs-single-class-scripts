@@ -12,10 +12,22 @@ namespace CS_Single_Class_Scripts
         public abstract class JValue
         {
             /**
-             * Get the value (bool, string, double or Dictonary, Array)
+             * Get the value (bool, string, double or Dictionary, Array)
              */
             public abstract object Value { get; set; }
 
+            public JValue this[string key]
+            {
+                get => throw new NotSupportedException();
+                set => throw new NotSupportedException();
+            }
+            
+            public JValue this[int index]
+            {
+                get => throw new NotSupportedException();
+                set => throw new NotSupportedException();
+            }
+            
             /**
              * Get as String value
              */
@@ -120,6 +132,12 @@ namespace CS_Single_Class_Scripts
             public JArray() : this(new List<JValue>())
             {
             }
+            
+            public new JValue this[int index]
+            {
+                get => Array[index];
+                set => Array[index] = value;
+            }
 
             public override string AsString()
             {
@@ -163,6 +181,12 @@ namespace CS_Single_Class_Scripts
 
             public JObject() : this(new Dictionary<string, JValue>())
             {
+            }
+            
+            public new JValue this[string key]
+            {
+                get => Dictionary[key];
+                set => Dictionary[key] = value;
             }
 
             public override string AsString()
